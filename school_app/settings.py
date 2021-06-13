@@ -14,9 +14,6 @@ import os
 import django_heroku
 
 
-# Activate Django-Heroku.
-django_heroku.settings(locals(), staticfiles=False)
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -154,8 +151,15 @@ USE_TZ = True
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 CRISPY_TEMPLATE_PACK = 'uni_form'
 
+
+# Extra places for collectstatic to find static files.
+
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
