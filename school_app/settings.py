@@ -66,9 +66,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corecode.middleware.SiteWideConfigs',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'school_app.urls'
 
